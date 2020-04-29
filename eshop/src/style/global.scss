@@ -1,0 +1,57 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@800;900&family=Roboto&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  line-height: 1.5em;
+  background: $accent7;
+  color: $text-color;
+  font-family: $text;
+}
+
+h1,h2,h3,h4 {
+  font-family: $headlines;
+  text-align: center;
+  margin: 1em;
+}
+
+a {
+  color: $accent2;
+}
+
+.layout {
+  padding: 2em;
+}
+
+.add-to-cart {
+  text-align: right;
+button{
+   color: $accent7;
+   font-size: 1em;
+   background-color: $bg-color;
+   cursor: pointer;
+   border-radius: 15px;
+   padding: 0.4rem 1.2rem;
+   border: none;
+   margin: 0.5rem 1.5rem;
+   border: 2px solid $accent7;
+ }
+button:hover {
+ background-color: $accent7;
+ color: $bg-color;
+ border: 2px solid $accent7;
+}
+}
+
+.product-price {
+  margin: 0.5rem 1.5rem;
+  color: $accent2;
+  font-weight: bold ;
+  font-size: 1.3em;
+}
+.product-original-price {
+    color: $accent4;
+    font-size: 0.9em;
+    margin: 0.5rem 1.5rem;
+}

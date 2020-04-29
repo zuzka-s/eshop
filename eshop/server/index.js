@@ -23,6 +23,11 @@ app.get('/api/product/:id', function (req, res) {
   res.json(data[req.params.id])
 })
 
+app.get('/api/products/:category', function (req, res) {
+  const data = require('./data.json')
+  res.json(data[req.params.category])
+})
+
 app.get('/api/products/available', function (req, res) {
     const data = require('./data.json')
     const availableProducts = {}

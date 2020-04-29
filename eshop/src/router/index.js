@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import ProductDetail from '../views/ProductDetail'
 import Error404 from '../views/Error404'
+import Products from '../views/Products'
+import ProductCategory from '../views/ProductCategory'
 
 Vue.use(VueRouter)
 
@@ -13,9 +15,19 @@ Vue.use(VueRouter)
     component: Home
   },
   {
+    path: '/products',
+    name: 'Products',
+    component: Products
+  },
+  {
     path: '/product/:id',
     name: 'Product',
     component: ProductDetail
+  },
+  {
+    path: '/product/:category',
+    name: 'ProductCategory',
+    component: ProductCategory
   },
   {
     path: '*',

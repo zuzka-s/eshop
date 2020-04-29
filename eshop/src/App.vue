@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-    </div>
-    <router-view/>
+    <TheHeader />
+    <TheContent />
     <TheFooter />
   </div>
 </template>
 
 <script>
-import TheFooter from './TheFooter'
+import TheFooter from './components/TheFooter'
+import TheHeader from './components/TheHeader'
+import TheContent from './components/TheContent'
 
 export default {
-  components: { TheFooter }
+   components: { TheContent, TheHeader, TheFooter }
 }
 </script>
 
 <style lang="scss">
-
+  @import './style/global.scss';
 </style>
