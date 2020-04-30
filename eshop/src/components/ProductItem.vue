@@ -54,7 +54,7 @@ export default {
     text-decoration: none;
     }
     :hover .product-title{
-    background-color: rgba(6,167,125,1);
+    background-color:  $accent7;
     color: $bg-color;
     }
   }
