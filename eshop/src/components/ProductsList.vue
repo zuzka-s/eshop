@@ -11,10 +11,25 @@
 </template>
 
 <script>
-import ProductItem from './ProductItem'
+import LoadingIndicator from '../components/LoadingIndicator'
+import ErrorIndicator from '../components/ErrorIndicator'
+
 export default {
   name: 'ProductsList',
-  components: { ProductItem },
+  components: {
+  ProductItem: () => ({
+      component: new Promise((resolve) => {
+        setTimeout(() => {
+          import('../components/ProductItem.vue')
+            .then(resolve)
+        }, 3000)
+      }),
+      loading: LoadingIndicator,
+      error: ErrorIndicator,
+      timeout: 5000,
+      delay: 200
+    })
+  },
   props: {
     productsList: {
       type: Object,

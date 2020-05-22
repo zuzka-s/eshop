@@ -1,10 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import ProductDetail from '../views/ProductDetail'
 import Error404 from '../views/Error404'
-import Products from '../views/Products'
-import ProductCategory from '../views/ProductCategory'
+
 
 Vue.use(VueRouter)
 
@@ -12,22 +9,34 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import(
+      '../views/Home.vue'
+      /* webpackChunkName: 'HomeView' */
+    )
   },
   {
     path: '/products',
     name: 'Products',
-    component: Products
+    component: () => import(
+      '../views/Products.vue'
+      /* webpackChunkName: 'ProductView' */
+    )
   },
   {
     path: '/product/:id',
     name: 'Product',
-    component: ProductDetail
+    component: () => import(
+      '../views/ProductDetail.vue'
+      /* webpackChunkName: 'ProductDetail' */
+    )
   },
   {
     path: '/product/:category',
     name: 'ProductCategory',
-    component: ProductCategory
+    component: () => import(
+      '../views/ProductCategory.vue'
+      /* webpackChunkName: 'ProductCategory' */
+    )
   },
   {
     path: '*',
