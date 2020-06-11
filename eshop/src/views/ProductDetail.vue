@@ -5,13 +5,22 @@
       <h1>{{ productData.title }}</h1>
       <div class="rating-box"><span class="rating">Hodnocení hráčů:</span><br> {{ productData.rankingAvg }}/ 5 </div>
       <div class="product-container">
-        <div class="product-image">
-            <img :src="productData.mediaId" :alt="productData.title">
-        </div>
+          <div class="product-image">
+              <transition name="slide-fade" appear>
+              <img :src="productData.mediaId" :alt="productData.title">
+              </transition>
+          </div>
         <div class="product-brief">
           <p class="product-brief-text"> {{ productData.brief }} </p>
            <del class="product-original-price">Cena: {{ productData.price.original }},- Kč</del>
           <p class="product-price">Cena: {{ productData.price.current }},- Kč</p>
+           <label>
+            <input type="checkbox" v-model="fastDelivery">
+            Rychlé doručení
+          </label>
+          <ProductDetailOptions
+            v-if="fastDelivery"
+          />
           <div class="product-available" v-if="productData.availability > 0">Zboží máme skladem</div>
           <div class="product-available not-available" v-else>Zboží je momentálně nedostupné</div>
            <div class="add-to-cart">
@@ -24,12 +33,15 @@
 </template>
 
 <script>
+import ProductDetailOptions from '../components/ProductDetailOptions'
 export default {
   name: 'ProductDetail',
   data () {
     return {
       isLoading: true,
-      productData: {}
+      productData: {},
+      fastDelivery: false,
+
     }
   },
   mounted () {
@@ -38,7 +50,9 @@ export default {
       .then((response) => response.json())
       .then((data) => this.productData = data)
       .then(() => this.isLoading = false)
-  }
+  },
+   components: { ProductDetailOptions },
+
 }
 </script>
 
@@ -120,7 +134,15 @@ export default {
   }
 
 
+.slide-fade-enter-active {
+  transition: all 1s ease;
+}
 
+.slide-fade-enter, .slide-fade-leave-to
+ {
+  transform: translateX(-150px);
+  opacity: 0;
+}
 
 
 </style>
