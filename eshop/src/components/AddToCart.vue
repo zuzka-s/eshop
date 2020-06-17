@@ -22,20 +22,22 @@ export default {
   },
   methods: {
     addQuantity () {
+        this.itemsInCart++
       this.$store.commit(
         'setCartItemQuantity',
         {
           productId: this.productId,
-          quantity: this.itemsInCart++
+          quantity: this.itemsInCart
         }
       )
     },
     lowerQuantity () {
+        this.itemsInCart--
       this.$store.commit(
         'setCartItemQuantity',
         {
           productId: this.productId,
-          quantity: this.itemsInCart--
+          quantity: this.itemsInCart
         }
       )
     }
