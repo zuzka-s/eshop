@@ -1,13 +1,14 @@
 <template>
   <div class="product-item">
-        <router-link :to="{name: 'Product', params: {id: productId}}">
             <div class="product-container">
+              <router-link :to="{name: 'Product', params: {id: productId}}">
                 <div class="product-title">
                 {{ productData.title }}  
                 </div>
                 <div class="product-image">
                     <img :src="productData.mediaId" :alt="productData.title">
                 </div>
+                  </router-link>
                 <div>
                     <del class="product-original-price">
                     {{ productData.price.original }},- Kč
@@ -16,17 +17,19 @@
                     {{ productData.price.current }},- Kč
                     </span>
                 </div>
-                <div class="add-to-cart">
-                    <button>Přidat do košíku</button>
+                <div class="counting">
+                     <add-to-cart :product-id="productId" />
                 </div>
             </div>
-        </router-link>
+    
     </div>
 </template>
 
 <script>
+import AddToCart from './AddToCart'
 export default {
   name: 'ProductItem',
+  components: { AddToCart },
   props: {
     productData: {
       type: Object,
