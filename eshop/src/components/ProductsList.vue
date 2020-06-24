@@ -1,11 +1,14 @@
 <template>
   <div class="productsList">
-    <ProductItem
+     <div
       v-for="(val, key) of productsList"
       :key="key"
+    >
+    <ProductItem
       :productData="val"
       :productId="key"
     />
+    </div>
   </div>
 
 </template>

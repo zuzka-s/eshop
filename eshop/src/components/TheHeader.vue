@@ -1,15 +1,21 @@
 <template>
   <div id="header" class="layout">
     <router-link to="/">Dice</router-link>
-    <the-cart />
+    <div class="the-cart">
+      <the-cart />
+    <div class="cart-list"> 
+      <cart-list/>
+     </div>
+    </div>
   </div>
 </template>
 
 <script>
-import TheCart from './TheCart'
+import TheCart from './TheCart';
+import CartList from './CartList'
 export default {
   name: 'TheHeader',
-  components: { TheCart }
+  components: { TheCart, CartList }
 }
 </script>
 
@@ -25,6 +31,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     a {
       font-size: 2em;
       color: $accent7;
@@ -33,6 +40,26 @@ export default {
       font-family: $headlines;
       font-weight: 900;
     }
-
   }
+  .cart-list {
+    display: none;
+    width: 600px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #ffffff;
+    padding: 1em;
+    flex-direction: column;
+    border: 2px solid $accent7;
+  }
+
+    .the-cart {
+    position: relative;
+    }
+
+  .the-cart:hover .cart-list{
+      display: flex;
+  }
+ 
+
 </style>

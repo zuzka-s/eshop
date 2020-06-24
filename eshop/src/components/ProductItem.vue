@@ -18,8 +18,15 @@
                     </span>
                 </div>
                 <div class="counting">
-                     <add-to-cart :product-id="productId" />
+                      <add-to-cart
+                      :product-id="productId"
+                      :availability="productData.availability"
+                    />
+
+                  <div>
+                    Availability: {{ productData.availability }}
                 </div>
+                 </div>
             </div>
     
     </div>
